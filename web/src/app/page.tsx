@@ -5,7 +5,7 @@ import UploadZone from "@/components/upload/UploadZone";
 import { FormatSelector, TargetFormat } from "@/components/upload/FormatSelector";
 import { FileWithStatus } from "@/lib/types";
 import { convertImage } from "@/lib/converter";
-import { Download as DownloadIcon, FileText } from "lucide-react";
+import { Download as DownloadIcon, FileText, Zap, ShieldCheck, RefreshCw, CreditCard } from "lucide-react";
 import { ImagePreviewModal } from "@/components/preview";
 import { ImageEditor } from "@/components/editor";
 import { AdBanner } from "@/components/ads/AdBanner";
@@ -273,77 +273,117 @@ export default function Home() {
 
         {/* SEO Content Section */}
         <div className="mt-12 w-full text-left bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-100">
-          <div className="space-y-12">
+          <div className="space-y-20">
 
             {/* Guide Section */}
             <section>
-              <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold">?</span>
-                How to Convert Images
+              <h2 className="text-2xl font-bold text-slate-900 mb-10 flex items-center gap-3">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white text-blue-600 shadow-sm ring-1 ring-slate-900/5">
+                  <FileText className="w-5 h-5" />
+                </span>
+                How to Convert
               </h2>
-              <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
-                <p>
-                  Converting images with PicSwitch is fast, secure, and free. Follow these simple steps:
-                </p>
-                <ol className="list-decimal pl-5 space-y-2 marker:text-slate-400">
-                  <li><strong className="text-slate-800">Choose your files:</strong> Drag & drop or select images.</li>
-                  <li><strong className="text-slate-800">Select format:</strong> Choose JPG, PNG, or WebP.</li>
-                  <li><strong className="text-slate-800">Convert instantly:</strong> Local processing means no uploads.</li>
-                  <li><strong className="text-slate-800">Download:</strong> Save individually or as ZIP.</li>
-                </ol>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+                <div className="relative pl-6 border-l-2 border-slate-200 transition-all hover:border-blue-500 group cursor-default">
+                  <span className="text-[10px] font-bold tracking-widest text-blue-600 mb-2 block uppercase opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Phase 01</span>
+                  <strong className="text-slate-900 font-bold text-lg block mb-2 group-hover:text-blue-600 transition-colors">Upload</strong>
+                  <p className="text-slate-500 text-sm leading-relaxed">Drag & drop files or click to select. We support large batches.</p>
+                </div>
+
+                <div className="relative pl-6 border-l-2 border-slate-200 transition-all hover:border-blue-500 group cursor-default">
+                  <span className="text-[10px] font-bold tracking-widest text-blue-600 mb-2 block uppercase opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Phase 02</span>
+                  <strong className="text-slate-900 font-bold text-lg block mb-2 group-hover:text-blue-600 transition-colors">Select Detail</strong>
+                  <p className="text-slate-500 text-sm leading-relaxed">Choose JPG, PNG, or WebP. Adjust quality if needed.</p>
+                </div>
+
+                <div className="relative pl-6 border-l-2 border-slate-200 transition-all hover:border-blue-500 group cursor-default">
+                  <span className="text-[10px] font-bold tracking-widest text-blue-600 mb-2 block uppercase opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Phase 03</span>
+                  <strong className="text-slate-900 font-bold text-lg block mb-2 group-hover:text-blue-600 transition-colors">Convert</strong>
+                  <p className="text-slate-500 text-sm leading-relaxed">Lightning fast processing happens directly in your browser.</p>
+                </div>
+
+                <div className="relative pl-6 border-l-2 border-slate-200 transition-all hover:border-blue-500 group cursor-default">
+                  <span className="text-[10px] font-bold tracking-widest text-blue-600 mb-2 block uppercase opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Phase 04</span>
+                  <strong className="text-slate-900 font-bold text-lg block mb-2 group-hover:text-blue-600 transition-colors">Save</strong>
+                  <p className="text-slate-500 text-sm leading-relaxed">Download individual images or get everything as a ZIP.</p>
+                </div>
               </div>
             </section>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
             {/* Benefits Section */}
             <section>
-              <h2 className="text-xl font-bold text-slate-900 mb-4">Why Choose PicSwitch?</h2>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
-                <div className="space-y-1">
-                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
-                    <span>🔒</span> 100% Private
-                  </h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">
-                    PicSwitch runs entirely in your browser. Your photos never leave your device.
-                  </p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-10">Why PicSwitch?</h2>
+              <div className="grid sm:grid-cols-2 gap-x-16 gap-y-12">
+                <div className="flex gap-5 group">
+                  <div className="flex-none w-12 h-12 rounded-2xl bg-white text-emerald-500 shadow-sm ring-1 ring-slate-900/5 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                    <CreditCard className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-2">Free Forever</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      No limits. No paywalls. No watermarks. Just open and convert.
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
-                    <span>⚡</span> Blazing Fast
-                  </h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">
-                    No upload wait times. Instant local processing, works offline.
-                  </p>
+
+                <div className="flex gap-5 group">
+                  <div className="flex-none w-12 h-12 rounded-2xl bg-white text-blue-500 shadow-sm ring-1 ring-slate-900/5 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-2">100% Private</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Files never leave your device. Processing happens locally via WebAssembly.
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
-                    <span>🔄</span> Universal Support
-                  </h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">
-                    Support for HEIC, WebP, JPG, PNG and more.
-                  </p>
+
+                <div className="flex gap-5 group">
+                  <div className="flex-none w-12 h-12 rounded-2xl bg-white text-amber-500 shadow-sm ring-1 ring-slate-900/5 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-2">Blazing Fast</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Zero latency. Works instantly without uploading/downloading large files.
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
-                    <span>💸</span> Free Forever
-                  </h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">
-                    No limits, no sign-ups, no watermarks.
-                  </p>
+
+                <div className="flex gap-5 group">
+                  <div className="flex-none w-12 h-12 rounded-2xl bg-white text-indigo-500 shadow-sm ring-1 ring-slate-900/5 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                    <RefreshCw className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-2">Universal Support</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Convert between HEIC, WebP, JPG, and PNG formats seamlessly.
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
 
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+
             {/* FAQ Section */}
             <section>
-              <h2 className="text-xl font-bold text-slate-900 mb-4">FAQ</h2>
-              <div className="space-y-4">
+              <h2 className="text-2xl font-bold text-slate-900 mb-10">FAQ</h2>
+              <div className="grid sm:grid-cols-2 gap-10">
                 <div>
-                  <h3 className="font-medium text-slate-800 text-sm mb-1">Is PicSwitch free?</h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">Yes, completely free with no limits.</p>
+                  <h3 className="font-bold text-slate-900 text-base mb-3">Is it really free?</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Yes. We believe basic tools should be free. No hidden costs.
+                  </p>
                 </div>
                 <div>
-                  <h3 className="font-medium text-slate-800 text-sm mb-1">Is it safe?</h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">Yes, files are processed locally via WebAssembly. No server uploads.</p>
+                  <h3 className="font-bold text-slate-900 text-base mb-3">Is it safe?</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Yes. We don't have servers to store your images. Everything stays on your computer.
+                  </p>
                 </div>
               </div>
             </section>
