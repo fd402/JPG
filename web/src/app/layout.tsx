@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google AdSense with built-in GDPR consent management */}
         <script
