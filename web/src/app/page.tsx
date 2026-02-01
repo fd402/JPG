@@ -143,16 +143,20 @@ export default function Home() {
       <main className="flex flex-col items-center gap-8 w-full max-w-3xl text-center">
 
         {/* Header Ad Banner */}
-        <AdBanner position="header" adSlot="header-banner" />
+        <AdBanner position="header" />
 
         {/* Header Section */}
         <div className="space-y-4">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <img src="/logo.png" alt="PicSwitch" className="w-12 h-12" />
+            <span className="text-2xl font-bold text-slate-800">PicSwitch</span>
+          </div>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900">
             Convert Images <br />
             <span className="text-blue-600">Instantly</span>
           </h1>
           <p className="text-lg text-slate-500 max-w-xl mx-auto">
-            Convert HEIC, WEBP, and PNG files. Fast, private, and free.
+            Convert HEIC, WEBP, JPG and PNG files. Fast, private, and free.
           </p>
         </div>
 
@@ -255,7 +259,7 @@ export default function Home() {
         </div>
 
         {/* Footer Ad Banner */}
-        <AdBanner position="footer" adSlot="footer-banner" />
+        <AdBanner position="footer" />
       </main>
 
       {/* Image Preview Modal */}

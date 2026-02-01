@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HEIC Converter - Bilder konvertieren",
-  description: "Konvertiere HEIC, JPG, PNG und WebP Bilder schnell und kostenlos im Browser.",
+  title: "PicSwitch - Convert Images Instantly",
+  description: "Convert HEIC, JPG, PNG and WebP images instantly in your browser. Fast, private, and free.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
