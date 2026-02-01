@@ -272,74 +272,83 @@ export default function Home() {
         </div>
 
         {/* SEO Content Section */}
-        <div className="mt-24 text-left space-y-16 max-w-2xl mx-auto px-4">
+        <div className="mt-12 w-full text-left bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-100">
+          <div className="space-y-12">
 
-          {/* Guide Section */}
-          <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">How to Convert Images with PicSwitch</h2>
-            <div className="space-y-4 text-slate-600">
-              <p>
-                Converting images with PicSwitch is fast, secure, and free. Follow these simple steps to convert format like HEIC, WebP, JPG, and PNG:
-              </p>
-              <ol className="list-decimal pl-5 space-y-2">
-                <li><strong className="text-slate-800">Choose your files:</strong> Drag and drop your images into the upload box or click to select them from your device.</li>
-                <li><strong className="text-slate-800">Select format:</strong> Choose your desired output format (JPG, PNG, or WebP). You can also adjust the quality slider to optimize file size.</li>
-                <li><strong className="text-slate-800">Convert instantly:</strong> Click the "Convert" button. PicSwitch processes your files locally in your browser – no uploads needed.</li>
-                <li><strong className="text-slate-800">Download:</strong> Save your converted images individually or download them all as a ZIP file.</li>
-              </ol>
-            </div>
-          </section>
+            {/* Guide Section */}
+            <section>
+              <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold">?</span>
+                How to Convert Images
+              </h2>
+              <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
+                <p>
+                  Converting images with PicSwitch is fast, secure, and free. Follow these simple steps:
+                </p>
+                <ol className="list-decimal pl-5 space-y-2 marker:text-slate-400">
+                  <li><strong className="text-slate-800">Choose your files:</strong> Drag & drop or select images.</li>
+                  <li><strong className="text-slate-800">Select format:</strong> Choose JPG, PNG, or WebP.</li>
+                  <li><strong className="text-slate-800">Convert instantly:</strong> Local processing means no uploads.</li>
+                  <li><strong className="text-slate-800">Download:</strong> Save individually or as ZIP.</li>
+                </ol>
+              </div>
+            </section>
 
-          {/* Benefits Section */}
-          <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Choose PicSwitch?</h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <h3 className="font-semibold text-slate-800">🔒 100% Private & Secure</h3>
-                <p className="text-slate-600 text-sm">
-                  Unlike other converters, PicSwitch runs entirely in your browser. Your photos are never uploaded to any server, ensuring complete privacy.
-                </p>
+            {/* Benefits Section */}
+            <section>
+              <h2 className="text-xl font-bold text-slate-900 mb-4">Why Choose PicSwitch?</h2>
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
+                    <span>🔒</span> 100% Private
+                  </h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">
+                    PicSwitch runs entirely in your browser. Your photos never leave your device.
+                  </p>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
+                    <span>⚡</span> Blazing Fast
+                  </h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">
+                    No upload wait times. Instant local processing, works offline.
+                  </p>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
+                    <span>🔄</span> Universal Support
+                  </h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">
+                    Support for HEIC, WebP, JPG, PNG and more.
+                  </p>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-slate-800 text-sm flex items-center gap-2">
+                    <span>💸</span> Free Forever
+                  </h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">
+                    No limits, no sign-ups, no watermarks.
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-slate-800">⚡ Blazing Fast</h3>
-                <p className="text-slate-600 text-sm">
-                  No upload or download wait times. Because conversion happens locally on your device, it's instant and works even offline.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-slate-800">🔄 Universal Support</h3>
-                <p className="text-slate-600 text-sm">
-                  Convert seamlessly between all major formats including HEIC (iPhone), WebP (Android/Web), JPG, and PNG.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-slate-800">💸 Free Forever</h3>
-                <p className="text-slate-600 text-sm">
-                  No daily limits, no watermarks, and no sign-up required. Convert as many images as you need purely for free.
-                </p>
-              </div>
-            </div>
-          </section>
+            </section>
 
-          {/* FAQ Section */}
-          <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-6 text-slate-600">
-              <div>
-                <h3 className="font-semibold text-slate-800 mb-2">Is PicSwitch free to use?</h3>
-                <p>Yes, PicSwitch is completely free. There are no limits on the number of files you can convert.</p>
+            {/* FAQ Section */}
+            <section>
+              <h2 className="text-xl font-bold text-slate-900 mb-4">FAQ</h2>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-medium text-slate-800 text-sm mb-1">Is PicSwitch free?</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">Yes, completely free with no limits.</p>
+                </div>
+                <div>
+                  <h3 className="font-medium text-slate-800 text-sm mb-1">Is it safe?</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">Yes, files are processed locally via WebAssembly. No server uploads.</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-slate-800 mb-2">Is it safe to convert private photos?</h3>
-                <p>Absolutely. Because PicSwitch processes files locally in your browser using WebAssembly technology, your photos never leave your computer or phone. We cannot see, store, or share your images.</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-slate-800 mb-2">Can I convert iPhone HEIC photos?</h3>
-                <p>Yes! PicSwitch specializes in converting Apple's HEIC format to widely supported formats like JPG or PNG, making it easy to view your photos on Windows or Android.</p>
-              </div>
-            </div>
-          </section>
+            </section>
 
+          </div>
         </div>
 
         {/* Footer Ad Banner - visible on mobile only */}
