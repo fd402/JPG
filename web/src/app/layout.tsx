@@ -16,7 +16,11 @@ export const metadata: Metadata = {
   title: "PicSwitch - Convert Images Instantly",
   description: "Convert HEIC, JPG, PNG and WebP images instantly in your browser. Fast, private, and free.",
   icons: {
-    icon: "/logo.png",
+    icon: [
+      { url: "/logo.png", sizes: "any" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/logo.png",
   },
 };
 
