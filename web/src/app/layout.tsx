@@ -17,9 +17,10 @@ export const metadata: Metadata = {
   description: "Convert HEIC, JPG, PNG and WebP images instantly in your browser. Fast, private, and free.",
   icons: {
     icon: [
-      { url: "/logo.png", sizes: "any" },
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", sizes: "192x192", type: "image/png" },
     ],
+    shortcut: "/favicon.ico",
     apple: "/logo.png",
   },
 };
