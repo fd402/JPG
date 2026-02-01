@@ -150,14 +150,23 @@ export default function Home() {
         <AdBanner position="header" />
 
         {/* Header Section */}
-        <div className="space-y-4">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <img src="/logo.png" alt="PicSwitch" className="w-12 h-12" />
-            <span className="text-2xl font-bold text-slate-800">PicSwitch</span>
+        <div className="space-y-6">
+          {/* Logo */}
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+              </svg>
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              PicSwitch
+            </span>
           </div>
+
+          {/* Main Title */}
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900">
             Convert Images <br />
-            <span className="text-blue-600">Instantly</span>
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Instantly</span>
           </h1>
           <p className="text-lg text-slate-500 max-w-xl mx-auto">
             Convert HEIC, WEBP, JPG and PNG files. Fast, private, and free.
