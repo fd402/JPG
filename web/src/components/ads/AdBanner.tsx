@@ -36,9 +36,13 @@ export function AdBanner({ position }: AdBannerProps) {
             try {
                 const timer = setTimeout(() => {
                     if (typeof window !== "undefined" && adRef.current) {
-                        // @ts-expect-error - adsbygoogle is added by external script
-                        (window.adsbygoogle = window.adsbygoogle || []).push({});
-                        adInitialized.current = true;
+                        // Check if the ad container has width (is visible)
+                        const containerWidth = adRef.current.offsetWidth;
+                        if (containerWidth > 0) {
+                            // @ts-expect-error - adsbygoogle is added by external script
+                            (window.adsbygoogle = window.adsbygoogle || []).push({});
+                            adInitialized.current = true;
+                        }
                     }
                 }, 100);
                 return () => clearTimeout(timer);
