@@ -14,8 +14,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PicSwitch - Convert Images Instantly",
-  description: "Convert HEIC, JPG, PNG and WebP images instantly in your browser. Fast, private, and free.",
+  title: "PicSwitch - Convert Images Instantly (HEIC, WebP, JPG, PNG)",
+  description: "Free online image converter. Convert HEIC to JPG, WebP to PNG, and more instantly in your browser. 100% private, no uploads, fast processing.",
+  applicationName: "PicSwitch",
+  authors: [{ name: "Felix Vancek", url: "https://picswitch.org" }],
+  generator: "Next.js",
+  keywords: [
+    "HEIC to JPG", "WebP converter", "image converter", "convert images", "png to jpg",
+    "heic converter", "browser based converter", "privacy focused", "bulk image converter",
+    "convert heic to png", "webp to jpg", "free image tool"
+  ],
+  referrer: "origin-when-cross-origin",
+  creator: "Felix Vancek",
+  publisher: "PicSwitch",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "https://picswitch.org",
+  },
+  openGraph: {
+    title: "PicSwitch - Convert Images Instantly",
+    description: "Convert HEIC, JPG, PNG and WebP images instantly in your browser. Fast, private, and free.",
+    url: "https://picswitch.org",
+    siteName: "PicSwitch",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "PicSwitch Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary", // Logo is square, so summary works better than large_image
+    title: "PicSwitch - Convert Images Instantly",
+    description: "Convert HEIC, JPG, PNG and WebP images instantly in your browser.",
+    images: ["/logo.png"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico?v=2", sizes: "any" },
@@ -24,6 +65,25 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico?v=2",
     apple: "/logo.png?v=2",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PicSwitch",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "A privacy-focused browser-based image converter for HEIC, WebP, JPG, and PNG formats.",
+  "featureList": "Convert HEIC to JPG, Convert WebP to PNG, Batch Conversion, Local Processing",
+  "author": {
+    "@type": "Person",
+    "name": "Felix Vancek"
+  }
 };
 
 export default function RootLayout({
@@ -39,6 +99,10 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6101504508825022"
           crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
