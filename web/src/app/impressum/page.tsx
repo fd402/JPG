@@ -15,8 +15,8 @@ export default function Impressum() {
                         <h2 className="font-semibold text-slate-800">Angaben gemäß § 5 TMG</h2>
                         <p className="mt-2">
                             Felix Vancek<br />
-                            [Straße und Hausnummer]<br />
-                            [PLZ Ort]<br />
+                            Erika-Kröger-Str. 60<br />
+                            47198 Duisburg<br />
                             Deutschland
                         </p>
                     </div>
@@ -24,7 +24,7 @@ export default function Impressum() {
                     <div>
                         <h2 className="font-semibold text-slate-800">Kontakt</h2>
                         <p className="mt-2">
-                            E-Mail: [deine-email@beispiel.de]
+                            E-Mail: fdvancek@gmail.com
                         </p>
                     </div>
 
@@ -32,7 +32,7 @@ export default function Impressum() {
                         <h2 className="font-semibold text-slate-800">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
                         <p className="mt-2">
                             Felix Vancek<br />
-                            [Adresse wie oben]
+                            Erika-Kröger-Str. 60, 47198 Duisburg
                         </p>
                     </div>
 

@@ -23,8 +23,8 @@ export default function Datenschutz() {
                         <h2 className="font-semibold text-slate-800 text-base">2. Verantwortlicher</h2>
                         <p className="mt-2">
                             Felix Vancek<br />
-                            [Adresse]<br />
-                            E-Mail: [deine-email@beispiel.de]
+                            Erika-Kröger-Str. 60, 47198 Duisburg<br />
+                            E-Mail: fdvancek@gmail.com
                         </p>
                     </div>
 
