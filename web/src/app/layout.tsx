@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { CookieConsent } from "@/components/cookie/CookieConsent";
 import { AdSenseLoader } from "@/components/ads/AdSenseLoader";
@@ -31,12 +30,11 @@ export default function RootLayout({
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
-        {/* AdSense verification script - always present for Google verification */}
-        <Script
+        {/* AdSense verification - raw script for Google verification */}
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6101504508825022"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
       </head>
       <body
