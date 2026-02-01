@@ -140,9 +140,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 sm:p-12 font-[family-name:var(--font-geist-sans)]">
+      {/* Sidebar Ads - visible on desktop only */}
+      <AdBanner position="left" />
+      <AdBanner position="right" />
+
       <main className="flex flex-col items-center gap-8 w-full max-w-3xl text-center">
 
-        {/* Header Ad Banner */}
+        {/* Header Ad Banner - visible on mobile only */}
         <AdBanner position="header" />
 
         {/* Header Section */}
@@ -258,7 +262,7 @@ export default function Home() {
           <span>High quality output</span>
         </div>
 
-        {/* Footer Ad Banner */}
+        {/* Footer Ad Banner - visible on mobile only */}
         <AdBanner position="footer" />
 
         {/* Footer Links */}

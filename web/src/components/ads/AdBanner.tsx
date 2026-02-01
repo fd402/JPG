@@ -9,15 +9,17 @@ const ADSENSE_CLIENT = "ca-pub-6101504508825022";
 const AD_SLOTS = {
     header: "6936461205",
     footer: "6685614539",
+    left: "6936461205",   // Can use same slot or create new one in AdSense
+    right: "6685614539",  // Can use same slot or create new one in AdSense
 };
 
 interface AdBannerProps {
-    position: "header" | "footer";
+    position: "header" | "footer" | "left" | "right";
 }
 
 /**
  * AdBanner component that displays Google AdSense ads.
- * Google's built-in CMP handles GDPR consent automatically.
+ * Supports responsive layouts - sidebars on desktop, header/footer on mobile.
  */
 export function AdBanner({ position }: AdBannerProps) {
     const [isClient, setIsClient] = useState(false);
@@ -51,9 +53,10 @@ export function AdBanner({ position }: AdBannerProps) {
     }
 
     const adSlot = AD_SLOTS[position];
+    const isSidebar = position === "left" || position === "right";
 
     return (
-        <div className={`ad-banner ad-banner--${position}`}>
+        <div className={`ad-banner ad-banner--${position} ${isSidebar ? 'ad-banner--sidebar' : ''}`}>
             <div className="ad-banner__container">
                 <ins
                     ref={adRef}
@@ -61,8 +64,8 @@ export function AdBanner({ position }: AdBannerProps) {
                     style={{ display: "block" }}
                     data-ad-client={ADSENSE_CLIENT}
                     data-ad-slot={adSlot}
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
+                    data-ad-format={isSidebar ? "vertical" : "auto"}
+                    data-full-width-responsive={!isSidebar}
                 />
             </div>
         </div>
