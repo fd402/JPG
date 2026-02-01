@@ -68,56 +68,57 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "PicSwitch",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "A privacy-focused browser-based image converter for HEIC, WebP, JPG, and PNG formats.",
-    "featureList": "Convert HEIC to JPG, Convert WebP to PNG, Batch Conversion, Local Processing",
-    "author": {
-      "@type": "Person",
-      "name": "Felix Vancek"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is PicSwitch free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, PicSwitch is completely free. There are no limits on the number of files you can convert."
-        }
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "PicSwitch",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@type": "Question",
-        "name": "Is it safe to convert private photos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. Because PicSwitch processes files locally in your browser using WebAssembly technology, your photos never leave your computer or phone."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I convert iPhone HEIC photos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! PicSwitch specializes in converting Apple's HEIC format to widely supported formats like JPG or PNG, making it easy to view your photos on Windows or Android."
-        }
+      "description": "A privacy-focused browser-based image converter for HEIC, WebP, JPG, and PNG formats.",
+      "featureList": "Convert HEIC to JPG, Convert WebP to PNG, Batch Conversion, Local Processing",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Vancek"
       }
-    ]
-  }
-];
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is PicSwitch free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, PicSwitch is completely free. There are no limits on the number of files you can convert."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to convert private photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Because PicSwitch processes files locally in your browser using WebAssembly technology, your photos never leave your computer or phone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert iPhone HEIC photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! PicSwitch specializes in converting Apple's HEIC format to widely supported formats like JPG or PNG, making it easy to view your photos on Windows or Android."
+          }
+        }
+      ]
+    }
+  ]
+};
 
 export default function RootLayout({
   children,
