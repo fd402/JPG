@@ -260,6 +260,16 @@ export default function Home() {
 
         {/* Footer Ad Banner */}
         <AdBanner position="footer" />
+
+        {/* Footer Links */}
+        <footer className="mt-8 pt-6 border-t border-slate-200 w-full text-center">
+          <div className="flex justify-center gap-6 text-sm text-slate-400">
+            <a href="/impressum" className="hover:text-slate-600 transition-colors">Impressum</a>
+            <span>•</span>
+            <a href="/datenschutz" className="hover:text-slate-600 transition-colors">Datenschutz</a>
+          </div>
+          <p className="mt-3 text-xs text-slate-300">© 2024 PicSwitch. All rights reserved.</p>
+        </footer>
       </main>
 
       {/* Image Preview Modal */}
