@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { canShowAds } from "@/lib/cookieConsent";
+import { useEffect, useRef, useState } from "react";
 import "./AdBanner.css";
 
 const ADSENSE_CLIENT = "ca-pub-6101504508825022";
@@ -18,34 +17,21 @@ interface AdBannerProps {
 
 /**
  * AdBanner component that displays Google AdSense ads.
- * Only shows ads if user has consented to marketing cookies.
+ * Google's built-in CMP handles GDPR consent automatically.
  */
 export function AdBanner({ position }: AdBannerProps) {
-    const [showAd, setShowAd] = useState(false);
     const [isClient, setIsClient] = useState(false);
     const adRef = useRef<HTMLModElement>(null);
     const adInitialized = useRef(false);
 
     useEffect(() => {
         setIsClient(true);
-        setShowAd(canShowAds());
-
-        // Listen for consent changes
-        const handleConsentUpdate = () => {
-            setShowAd(canShowAds());
-        };
-
-        window.addEventListener("cookie-consent-updated", handleConsentUpdate);
-        return () => {
-            window.removeEventListener("cookie-consent-updated", handleConsentUpdate);
-        };
     }, []);
 
-    // Initialize AdSense when ad becomes visible
+    // Initialize AdSense when component mounts
     useEffect(() => {
-        if (showAd && adRef.current && !adInitialized.current) {
+        if (isClient && adRef.current && !adInitialized.current) {
             try {
-                // Small delay to ensure AdSense script is loaded
                 const timer = setTimeout(() => {
                     if (typeof window !== "undefined" && adRef.current) {
                         // @ts-expect-error - adsbygoogle is added by external script
@@ -58,10 +44,9 @@ export function AdBanner({ position }: AdBannerProps) {
                 console.warn("AdSense initialization failed:", e);
             }
         }
-    }, [showAd]);
+    }, [isClient]);
 
-    // Don't render on server or if user hasn't consented
-    if (!isClient || !showAd) {
+    if (!isClient) {
         return null;
     }
 

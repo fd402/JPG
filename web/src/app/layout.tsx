@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CookieConsent } from "@/components/cookie/CookieConsent";
-import { AdSenseLoader } from "@/components/ads/AdSenseLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
-        {/* AdSense verification - raw script for Google verification */}
+        {/* Google AdSense with built-in GDPR consent management */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6101504508825022"
@@ -41,8 +39,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <AdSenseLoader />
-        <CookieConsent />
       </body>
     </html>
   );
