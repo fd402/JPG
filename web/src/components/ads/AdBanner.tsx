@@ -36,18 +36,22 @@ export function AdBanner({ position }: AdBannerProps) {
             try {
                 const timer = setTimeout(() => {
                     if (typeof window !== "undefined" && adRef.current) {
-                        // Check if the ad container has width (is visible)
-                        const containerWidth = adRef.current.offsetWidth;
-                        if (containerWidth > 0) {
-                            // @ts-expect-error - adsbygoogle is added by external script
-                            (window.adsbygoogle = window.adsbygoogle || []).push({});
-                            adInitialized.current = true;
+                        try {
+                            // Check if the ad container has width (is visible)
+                            const containerWidth = adRef.current.offsetWidth;
+                            if (containerWidth > 0) {
+                                // @ts-expect-error - adsbygoogle is added by external script
+                                (window.adsbygoogle = window.adsbygoogle || []).push({});
+                                adInitialized.current = true;
+                            }
+                        } catch (e) {
+                            console.error("AdSense push failed:", e);
                         }
                     }
                 }, 100);
                 return () => clearTimeout(timer);
             } catch (e) {
-                console.warn("AdSense initialization failed:", e);
+                console.warn("AdSense logic failed:", e);
             }
         }
     }, [isClient]);
