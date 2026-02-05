@@ -68,7 +68,7 @@ export function HeroSection({
             <div className="flex flex-col items-center justify-center gap-6">
 
                 {/* Format Transition Row with H1 for SEO */}
-                <h1 className="flex items-center gap-2 sm:gap-4 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight flex-wrap justify-center">
+                <h1 className="flex items-center gap-2 sm:gap-4 text-2xl sm:text-5xl font-black text-slate-900 tracking-tight flex-wrap justify-center">
 
                     {/* Input Format Dropdown */}
                     <div className="relative inline-block" ref={inputDropdownRef}>
@@ -77,12 +77,12 @@ export function HeroSection({
                             className="flex items-center gap-2 border-b-4 border-blue-600 hover:text-blue-600 hover:border-blue-700 transition-colors pb-1"
                         >
                             {inputFormat.toUpperCase()}
-                            <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 stroke-[3]" />
+                            <ChevronDown className="w-5 h-5 sm:w-8 sm:h-8 stroke-[3]" />
                         </button>
 
                         {/* Input Dropdown Menu */}
                         {isInputDropdownOpen && (
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[320px] bg-white rounded-3xl shadow-xl border border-slate-100 p-4 z-50 animate-in fade-in zoom-in-95 duration-200">
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[90vw] max-w-[320px] bg-white rounded-3xl shadow-xl border border-slate-100 p-4 z-50 animate-in fade-in zoom-in-95 duration-200">
                                 <div className="grid grid-cols-2 gap-2">
                                     {inputFormats.map((format) => (
                                         <button
@@ -112,12 +112,12 @@ export function HeroSection({
                             className="flex items-center gap-2 border-b-4 border-blue-600 hover:text-blue-600 hover:border-blue-700 transition-colors pb-1"
                         >
                             {targetFormat.toUpperCase()}
-                            <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 stroke-[3]" />
+                            <ChevronDown className="w-5 h-5 sm:w-8 sm:h-8 stroke-[3]" />
                         </button>
 
                         {/* Output Dropdown Menu */}
                         {isOutputDropdownOpen && (
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[320px] bg-white rounded-3xl shadow-xl border border-slate-100 p-4 z-50 animate-in fade-in zoom-in-95 duration-200">
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[90vw] max-w-[320px] bg-white rounded-3xl shadow-xl border border-slate-100 p-4 z-50 animate-in fade-in zoom-in-95 duration-200">
                                 <div className="grid grid-cols-3 gap-2">
                                     {formats.map((format) => (
                                         <button
