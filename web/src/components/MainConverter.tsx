@@ -2,9 +2,12 @@
 
 import { useState, useCallback, useEffect } from "react";
 import UploadZone from "@/components/upload/UploadZone";
-import { FormatSelector, TargetFormat } from "@/components/upload/FormatSelector";
+import { TargetFormat } from "@/components/upload/FormatSelector";
+import { HeroSection } from "@/components/upload/HeroSection";
+import { QualitySlider } from "@/components/upload/QualitySlider";
 import { FileWithStatus } from "@/lib/types";
 import { convertImage } from "@/lib/converter";
+import { downloadBlob, downloadZip } from "@/lib/download";
 import { Download as DownloadIcon, FileText, Zap, ShieldCheck, RefreshCw, CreditCard } from "lucide-react";
 import { ImagePreviewModal } from "@/components/preview";
 import { ImageEditor } from "@/components/editor";
@@ -22,6 +25,7 @@ export default function MainConverter({
     subheadline
 }: MainConverterProps) {
     const [targetFormat, setTargetFormat] = useState<TargetFormat>(initialTargetFormat);
+    const [inputFormat, setInputFormat] = useState<string>("heic");
     const [files, setFiles] = useState<FileWithStatus[]>([]);
     const [isConverting, setIsConverting] = useState(false);
     const [previewFile, setPreviewFile] = useState<FileWithStatus | null>(null);
@@ -159,46 +163,24 @@ export default function MainConverter({
                 {/* Header Ad Banner - visible on mobile only */}
                 <AdBanner position="header" />
 
-                {/* Header Section */}
-                <div className="space-y-6">
-                    {/* Logo */}
-                    <div className="flex items-center justify-center gap-3">
-                        <img
-                            src="/logo.png"
-                            alt="PicSwitch"
-                            className="w-14 h-14 rounded-2xl shadow-lg"
+                {/* New Hero Section */}
+                <HeroSection
+                    targetFormat={targetFormat}
+                    onTargetFormatChange={setTargetFormat}
+                    inputFormat={inputFormat}
+                    onInputFormatChange={setInputFormat}
+                />
+
+                {/* Quality Slider for lossy formats */}
+                {(targetFormat === 'jpg' || targetFormat === 'webp') && (
+                    <div className="w-full max-w-md mx-auto">
+                        <QualitySlider
+                            quality={quality}
+                            onChange={setQuality}
+                            estimatedOriginalSize={totalFileSize > 0 ? totalFileSize : undefined}
                         />
-                        <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                            PicSwitch
-                        </span>
                     </div>
-
-                    {/* Main Title */}
-                    {headline || (
-                        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900">
-                            Convert Images <br />
-                            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Instantly</span>
-                        </h1>
-                    )}
-                    {subheadline ? (
-                        <p className="text-lg text-slate-500 max-w-xl mx-auto">{subheadline}</p>
-                    ) : (
-                        <p className="text-lg text-slate-500 max-w-xl mx-auto">
-                            Convert HEIC, WEBP, JPG and PNG files. Fast, private, and free.
-                        </p>
-                    )}
-                </div>
-
-                {/* Format Selection */}
-                <div className="w-full">
-                    <FormatSelector
-                        selectedFormat={targetFormat}
-                        onSelect={setTargetFormat}
-                        quality={quality}
-                        onQualityChange={setQuality}
-                        totalFileSize={totalFileSize > 0 ? totalFileSize : undefined}
-                    />
-                </div>
+                )}
 
                 {/* Upload Component */}
                 <div className="w-full">
@@ -206,9 +188,8 @@ export default function MainConverter({
                         files={files}
                         onFilesAdded={handleFilesAdded}
                         onFileRemove={handleFileRemove}
-                        onFileDownload={async (file) => {
+                        onFileDownload={(file) => {
                             if (file.resultBlob && file.outputName) {
-                                const { downloadBlob } = await import("@/lib/download");
                                 downloadBlob(file.resultBlob, file.outputName);
                             }
                         }}
@@ -241,16 +222,14 @@ export default function MainConverter({
                         {/* Download Button */}
                         {files.some(f => f.status === 'success') && !isConverting && (
                             <button
-                                onClick={async () => {
+                                onClick={() => {
                                     const successFiles = files.filter(f => f.status === 'success');
                                     if (successFiles.length === 1) {
-                                        const { downloadBlob } = await import("@/lib/download");
                                         const file = successFiles[0];
                                         if (file.resultBlob && file.outputName) {
                                             downloadBlob(file.resultBlob, file.outputName);
                                         }
                                     } else {
-                                        const { downloadZip } = await import("@/lib/download");
                                         downloadZip(files);
                                     }
                                 }}

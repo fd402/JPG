@@ -11,30 +11,25 @@ export function downloadBlob(blob: Blob, filename: string) {
         return;
     }
 
-    // Force download by wrapping in octet-stream
-    const forceDownloadBlob = new Blob([blob], { type: "application/octet-stream" });
-    const url = URL.createObjectURL(forceDownloadBlob);
+    // Create object URL from the original blob
+    // We do NOT force "application/octet-stream" unless absolutely necessary,
+    // as it can confuse browsers if they ignore the filename attribute.
+    const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = filename || "download.bin";
+    a.download = filename; // This attribute should be sufficient
     a.style.display = "none";
     document.body.appendChild(a);
 
-    // Use MouseEvent to ensure proper click handling
-    const event = new MouseEvent("click", {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-    });
-    a.dispatchEvent(event);
+    // Standard click
+    a.click();
 
-    // Cleanup after delay
+    // Cleanup after small delay
     setTimeout(() => {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-        console.log("Download cleanup complete for:", filename);
-    }, 3000);
+    }, 100);
 }
 
 export async function downloadZip(files: FileWithStatus[]) {
